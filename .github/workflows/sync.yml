@@ -1,0 +1,18 @@
+name: SynctoGitee 
+on: [push]  # 代码提交时触发同步 
+ 
+jobs:
+  sync:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@v4 
+ 
+      - name: Mirror to Gitee 
+        uses: wearerequired/git-mirror-action@master  # 官方推荐插件 
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+        with:
+          source-repo: "git@github.com:${{  github.repository  }}.git"  # 当前仓库地址 
+          destination-repo: "git@gitee.com:rtian/abc.git"        # Gitee目标仓库 
+          force: true  # 强制覆盖冲突文件 
