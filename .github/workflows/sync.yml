@@ -3,11 +3,10 @@ on: [push]  # 代码提交时触发同步
  
 jobs:
   sync:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-22.04 
     steps:
       - name: Checkout code 
         uses: actions/checkout@v4 
- 
       - name: Mirror to Gitee 
         uses: wearerequired/git-mirror-action@master  # 官方推荐插件 
         env:
