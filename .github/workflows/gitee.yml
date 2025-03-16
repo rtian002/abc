@@ -17,7 +17,7 @@ jobs:
       run: |
         git config --global user.name  "rtian"
         git config --global user.email  "rtian1@163.com" 
-        git remote add gitee https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
+        git remote add origin  https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
         git add .
         git commit -m "Auto commit from GitHub Actions"
-        git push gitee master 
+        git push origin  master 
