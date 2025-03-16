@@ -1,5 +1,6 @@
-name: Generate & Sync to Gitee 
+name: SyncToGitee 
 on: 
+  workflow_dispatch:
   push:  # 代码提交时触发 
     branches: [ main ]
   schedule:  # 定时触发（可选）
