@@ -1,0 +1,33 @@
+name: Generate & Sync to Gitee 
+on: 
+  push:  # 代码提交时触发 
+    branches: [ main ]
+  schedule:  # 定时触发（可选）
+    - cron: '0 0 * * *'
+ 
+jobs:
+  generate-and-sync:
+    runs-on: ubuntu-20.04 
+    steps:
+    - name: Checkout code 
+      uses: actions/checkout@v4 
+ 
+    - name: Generate files  # 自定义生成文件步骤 
+      run: |
+        echo "生成文件示例" > output.txt  
+ 
+    - name: Commit generated files 
+      run: |
+        git config --global user.name  "rtian002"
+        git config --global user.email  "rtian002@gmail.com" 
+        git add .
+        git commit -m "Auto-generated files"
+        git push origin main 
+ 
+    - name: Sync to Gitee 
+      uses: wearerequired/git-mirror-action@master 
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+      with:
+        source-repo: "git@github.com:${{  github.repository  }}.git"
+        destination-repo: "git@gitee.com:rtian/abc.git" 
