@@ -1,0 +1,23 @@
+name: Push to Gitee 
+on: [push]
+ 
+jobs:
+  sync:
+    runs-on: ubuntu-latest 
+    steps:
+    - name: Checkout code 
+      uses: actions/checkout@v4 
+ 
+    - name: Generate files  # 生成文件的步骤（可选）
+      run: echo "Hello Gitee" > example.txt  
+ 
+    - name: Push to Gitee 
+      env:
+        GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+      run: |
+        git config --global user.name  "rtian"
+        git config --global user.email  "rtian1@163.com" 
+        git remote add gitee https://gitee_username:$GITEE_TOKEN@gitee.com/rtian/abc.git  
+        git add .
+        git commit -m "Auto commit from GitHub Actions"
+        git push gitee main 
