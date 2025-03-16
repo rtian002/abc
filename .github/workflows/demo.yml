@@ -7,11 +7,17 @@ jobs:
     steps:
       - name: Checkout code 
         uses: actions/checkout@v4 
+      - name: run Script
+        env:
+         SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+        run: |
+         mkdir -p ~/.ssh
+         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+         chmod 600 ~/.ssh/id_ed25519
+         ssh-keyscan gitee.com >> ~/.ssh/known_hosts
  
       - name: Mirror to Gitee 
         uses: wearerequired/git-mirror-action@master  # 官方推荐插件 
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
         with:
           source-repo: "git@github.com:${{  github.repository  }}.git"  # 当前仓库地址 
           destination-repo: "git@gitee.com:rtian/abc.git"        # Gitee目标仓库 
