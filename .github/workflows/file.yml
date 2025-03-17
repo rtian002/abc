@@ -20,5 +20,5 @@ jobs:
         cp 1 abc/
         cd abc
         git add .
-        git commit -m "Auto commit from GitHub Actions"
+        git commit -m "Sync from GitHub Actions"
         git push origin HEAD:master --force 
