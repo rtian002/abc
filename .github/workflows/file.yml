@@ -1,5 +1,9 @@
-name: List files
-on: workflow_dispatch
+name: SyncToGitee
+on: 
+ push:
+  paths:
+   - '1'
+ workflow_dispatch:
  
 jobs:
   sync:
@@ -14,7 +18,6 @@ jobs:
         git config --global user.name  "rtian"
         git config --global user.email  "rtian1@163.com" 
         git clone https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git 
-        echo "测试$(date)" >> 1
         cp 1 abc/
         cd abc
         git add .
