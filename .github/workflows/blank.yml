@@ -11,4 +11,4 @@ jobs:
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
         run: |
           git remote add abc https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
-          git push abc HEAD:main 
+          git push abc HEAD:master 
