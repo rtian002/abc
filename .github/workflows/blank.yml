@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@v3 
       - name: Push to abc 
         env:
-          REPO2_TOKEN: ${{ secrets.GITEE_TOKEN }}
+          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
         run: |
-          git remote add abc https://rtian002:$REPO2_TOKEN@github.com/rtian002/abc.git  
+          git remote add abc https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
           git push abc HEAD:main 
