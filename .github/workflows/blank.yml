@@ -13,4 +13,4 @@ jobs:
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
         run: |
           git remote add gitee https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
-          git push gitee HEAD:master --force 
+          git push --force  gitee HEAD:master
