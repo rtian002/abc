@@ -1,0 +1,14 @@
+name: Sync to Repository 2 
+on: [push]
+jobs:
+  sync:
+    runs-on: ubuntu-22.04 
+    steps:
+      - name: Checkout code 
+        uses: actions/checkout@v3 
+      - name: Push to abc 
+        env:
+          REPO2_TOKEN: ${{ secrets.GITEE_TOKEN }}
+        run: |
+          git remote add abc https://rtian002:$REPO2_TOKEN@github.com/rtian002/abc.git  
+          git push abc HEAD:main 
