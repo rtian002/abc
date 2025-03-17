@@ -1,9 +1,8 @@
 name: SyncToGitee
 on: 
- push:
-  paths:
-   - '1'
  workflow_dispatch:
+ push:  
+  paths: '1'
  
 jobs:
   sync:
