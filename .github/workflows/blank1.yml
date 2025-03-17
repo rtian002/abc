@@ -1,5 +1,6 @@
 name: Sync to Repository 2 
-on: [push]
+on: workflow_dispatch
+#on: [push]
 jobs:
   sync:
     runs-on: ubuntu-22.04 
