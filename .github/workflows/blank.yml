@@ -10,5 +10,5 @@ jobs:
         env:
           GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
         run: |
-          git remote add origin https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
-          git push origin HEAD:master --force 
+          git remote add gitee https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
+          git push gitee HEAD:master --force 
