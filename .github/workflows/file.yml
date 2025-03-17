@@ -1,12 +1,23 @@
-name: Sync to Repository 2 
+name: List files
 on: workflow_dispatch
-#on: [push]
+ 
 jobs:
   sync:
-    runs-on: ubuntu-22.04 
+    runs-on: ubuntu-latest 
     steps:
-      - name: Checkout code 
-        uses: actions/checkout@v4 
-      - name: List files
-        run: |
-          ls
+    - name: Checkout code 
+      uses: actions/checkout@v4 
+    - name: List file & Push to Gitee 
+      env:
+        GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
+      run: |
+        git config --global user.name  "rtian"
+        git config --global user.email  "rtian1@163.com" 
+        git clone https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git 
+        ls -l
+        # cp 1.txt abc/
+        # cd abc
+        # # git remote add gitee  https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
+        # git add .
+        # git commit -m "Auto commit from GitHub Actions"
+        # git push origin HEAD:master --force 
