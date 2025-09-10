@@ -20,5 +20,5 @@ jobs:
         cp 1 2 3 4 abc/
         cd abc
         git add .
-        git commit -m "Sync from GitHub Actions"
+        git commit -m "Sync from GitHub rtian002/abc"
         git push origin HEAD:master --force 
