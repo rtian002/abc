@@ -17,7 +17,8 @@ jobs:
         git config --global user.name  "rtian"
         git config --global user.email  "rtian1@163.com" 
         git clone https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git 
-        cp * abc/
+        ls -l
+        cp -f 1 2 3 4 5 *.txt ./abc/
         cd abc
         git add .
         git commit -m "Sync from GitHub rtian002/abc"
