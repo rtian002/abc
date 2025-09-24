@@ -1,17 +1,9 @@
-name: Sync to Repository 2 
+name: TEST-VAR 
 on: workflow_dispatch
-#on: [push]
+
 jobs:
-  sync:
-    runs-on: ubuntu-22.04 
+  job1-test:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code 
-        uses: actions/checkout@v4 
-        with:
-          fetch-depth: 1
-      - name: Push to abc 
-        env:
-          GITEE_TOKEN: ${{ secrets.GITEE_TOKEN }}
-        run: |
-          git remote add gitee https://rtian:$GITEE_TOKEN@gitee.com/rtian/abc.git  
-          git push --force  gitee HEAD:master
+      - name: echo var
+        run: echo "hello world"
